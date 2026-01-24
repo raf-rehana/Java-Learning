@@ -14,7 +14,10 @@ public class RectangleArea {
         
         double area = length * width;
         
+        double perimeter = 2 * (length + width);
+        
         System.out.print("Area Is: " + area);
+        System.out.println(" And Perimeter Is: " + perimeter);
 }
 }
 
