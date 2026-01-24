@@ -1,5 +1,5 @@
 
-package firstclass;
+package rectanglearea;
 
 import java.util.Scanner;
 public class RectangleArea {
@@ -17,3 +17,4 @@ public class RectangleArea {
         System.out.print("Area Is: " + area);
 }
 }
+
