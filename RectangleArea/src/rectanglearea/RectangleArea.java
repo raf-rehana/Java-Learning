@@ -20,6 +20,7 @@ public class RectangleArea {
         System.out.println("Area of the Rectangle Is: " + area);
         System.out.println("Perimeter of the Rectangle Is: " + perimeter);
                
+  
     }
     
 }

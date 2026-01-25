@@ -3,7 +3,6 @@ package circlearea1;
 
 import java.util.Scanner;
 
-
 public class CircleArea1 {
 
     public static void main(String[] args) {

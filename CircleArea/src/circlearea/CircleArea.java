@@ -1,9 +1,9 @@
+
 package circlearea;
 
 public class CircleArea {
 
     public static void main(String[] args) {
-//        float radius;
 //        double area;
 //        radius = 5;
 //        
@@ -17,5 +17,5 @@ public class CircleArea {
         System.out.println("Area Of the circle is: " + area);
         System.out.println("Perimeter of the circle is: " + perimeter);
     }
-
+    
 }
