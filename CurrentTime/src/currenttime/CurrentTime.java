@@ -5,6 +5,7 @@ public class CurrentTime {
 
     public static void main(String[] args) {
        long time = System.currentTimeMillis();
+       
        long totalSeconds = time/1000;
        long hours = (((totalSeconds/3600)%24)+6)% 24;
 
@@ -13,6 +14,5 @@ public class CurrentTime {
        long seconds = remainingSeconds % 60;
        
         System.out.println("Current Time Is: " + hours + ":" + minutes + ":" + seconds + " GMT+6");
-    }
-    
+    }   
 }
