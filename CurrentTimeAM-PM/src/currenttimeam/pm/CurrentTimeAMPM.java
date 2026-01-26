@@ -28,7 +28,7 @@ public class CurrentTimeAMPM {
             hours12 = hours24 - 12;
             period = "PM";
         }
-        System.out.println("Current Time Is: " + hours12 +":" + minutes + ":" + seconds + period);
+        System.out.printf("Current Time Is: %02d:%02d:%02d %s%n", hours12, minutes,seconds, period);
     }
     
 }

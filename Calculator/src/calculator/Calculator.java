@@ -30,16 +30,16 @@ public class Calculator {
                 if(number1 != 0){
                     result =  number1 / number2;
                 }else{
-                    System.out.println("Cannot divide by a Number");
+                    System.out.println("Result: 0 Cannot divide by a Number");
                     error = true;
                 }
             } else{
-                System.out.println("Invalid Operator!");
+                System.out.println("Result: Invalid Operator!");
                 error = true;
             }
                 
             if(!error){
-                 System.out.println("Result Is: " + result );
+                 System.out.println("Result: "+ number1 + operator + number2 + " = "  + result );
             }
            
  
