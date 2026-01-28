@@ -18,7 +18,7 @@ public class UserLogin {
         if(userName.equalsIgnoreCase("rafiaah") && password.equals("Rafiaah1122")){
             System.out.println("Welcome " + userName.toUpperCase()+ "!" );
         }else{
-            System.out.println("UserName or Password is Incorrect");
+            System.out.println("Invalid login credentials");
         }
         
                

@@ -16,8 +16,8 @@ public class CircleArea1 {
             area = (float) (Math.PI * Math.pow(radius, 2));
             perimeter = (float) (2 * Math.PI * radius);
 
-            System.out.println("Area Is: " + area);
-            System.out.println("Perimeter Is: " + perimeter);
+            System.out.println("Area Is: " + Math.round(area));
+            System.out.println("Perimeter Is: " + Math.round(perimeter));
 
         } else {
             System.out.println("Radius Can't be Zero Or Negative");
