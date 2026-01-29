@@ -7,37 +7,46 @@ public class GuessGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int randomEasy = randomNumber(1, 6);
-        int randomMedium = randomNumber(10, 20);
-        int randomHard = randomNumber(21, 40);
+//        int randomEasy = randomNumber(1, 6);
+//        int randomMedium = randomNumber(10, 20);
+//        int randomHard = randomNumber(21, 40);
 
         System.out.print("Choice Level (Easy/Medium/Hard): ");
         String level = scanner.nextLine().toLowerCase();
 
-        if (level.equals("easy")) {
-            guessNumber(randomEasy, scanner);
+        switch (level) {
+            case "easy" -> {
+                guessNumber( scanner,1, 6);
+                break;
+            }
+            case "medium" -> {
+                guessNumber( scanner, 1, 10);
+                break;
+            }
+            case "hard" -> {
+                guessNumber(scanner, 20, 40);
+                break;
+            }
 
-        } else if (level.equals("medium")) {
-            guessNumber(randomMedium, scanner);
+            default -> {
+                System.out.println("Invalid Choice");
+                break;
+            }
 
-        } else if (level.equals("hard")) {
-            guessNumber(randomHard, scanner);
-
-        } else {
-            System.out.println("Invalid Choice");
         }
-
     }
 
-    static void guessNumber(int random, Scanner scanner) {
+    static void guessNumber(Scanner scanner, int min, int max) {
         System.out.print("Guess a Number: ");
         int guessNumber = scanner.nextInt();
         
+        int random = randomNumber(min, max);
+
         if (random == guessNumber) {
             System.out.println("Congratulations! You Gussed The Correct Number");
 
         } else {
-            System.err.println("Better Luck Next Time!");
+            System.out.println("Better Luck Next Time!");
         }
     }
 
