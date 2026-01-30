@@ -1,8 +1,8 @@
-package practice;
+package taxcalculate;
 
 import java.util.Scanner;
 
-public class Practice {
+public class TaxCalculate {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
