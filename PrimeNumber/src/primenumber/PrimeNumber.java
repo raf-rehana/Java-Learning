@@ -1,19 +1,23 @@
-package practicemethod;
+package primenumber;
 
 import java.util.Scanner;
 
-public class PracticeMethod {
+public class PrimeNumber {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a Number: ");
+
+        System.out.print("Enter a Number: ");
         int number = scanner.nextInt();
         int count = 0;
 
         for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
                 count++;
+
+                if (count > 2) {
+                    break;
+                }
             }
         }
 
@@ -22,6 +26,6 @@ public class PracticeMethod {
         } else {
             System.out.println(number + " is Not a Prime Number");
         }
-    }
 
+    }
 }
