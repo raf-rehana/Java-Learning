@@ -8,18 +8,26 @@ public class PracticeMethod {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
+        System.out.print("Enter a Number: ");
+        long number = scanner.nextLong();
 
-        System.out.print("Enter your age: ");
-        int age = scanner.nextInt();
-        
-        masud(name, age);
-        
+        factorialValue(number);
     }
 
-   
-    static void masud(String name, int age ){
-        System.out.println("Welcome " + name + "! you are " + age + " years old! " );
-    } 
+    static void factorialValue(long number) {
+
+        long factorial = 1;
+        long i = 1;
+
+        if (number <= 0) {
+            System.out.println("Enter A Positive Number");
+        } else {
+            while (i <= number) {
+                factorial *= i;
+                i++;
+            }
+             System.out.println((number + "! = ") + factorial);
+        }
+       
+    }
 }

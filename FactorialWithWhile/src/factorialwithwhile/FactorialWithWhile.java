@@ -9,15 +9,24 @@ public class FactorialWithWhile {
 
         System.out.print("Enter a Number: ");
         long number = scanner.nextLong();
-        long factorial = 1;
-        long i=1;
-        
-        while (i <= number) {
-            factorial *= i;
-            i++;
-        }
 
-        System.out.println((number + "! = ") + factorial);
+        factorialValue(number);
     }
 
+    static void factorialValue(long number) {
+
+        long factorial = 1;
+        long i = 1;
+
+        if (number <= 0) {
+            System.out.println("Enter A Positive Number");
+        } else {
+            while (i <= number) {
+                factorial *= i;
+                i++;
+            }
+             System.out.println((number + "! = ") + factorial);
+        }
+       
+    }
 }
