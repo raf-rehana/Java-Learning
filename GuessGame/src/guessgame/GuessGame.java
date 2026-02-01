@@ -15,23 +15,23 @@ public class GuessGame {
         String level = scanner.nextLine().toLowerCase();
 
         switch (level) {
-            case "easy" -> {
+            case "easy" : 
                 guessNumber( scanner,1, 6);
                 break;
-            }
-            case "medium" -> {
+            
+            case "medium" : 
                 guessNumber( scanner, 1, 10);
                 break;
-            }
-            case "hard" -> {
-                guessNumber(scanner, 20, 40);
+            
+            case "hard" :
+                guessNumber(scanner, 20, 50);
                 break;
-            }
+            
 
-            default -> {
+            default :
                 System.out.println("Invalid Choice");
                 break;
-            }
+            
 
         }
     }
