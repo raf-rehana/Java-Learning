@@ -13,14 +13,10 @@ public class GuessGame3Chance {
 
         switch (level) {
 
-            case "easy" ->
-                playLevel(scanner, 1, 6);
-            case "medium" ->
-                playLevel(scanner, 1, 10);
-            case "hard" ->
-                playLevel(scanner, 10, 30);
-            default ->
-                System.out.println("Invalid Choice");
+            case "easy" -> playLevel(scanner, 1, 6);
+            case "medium" -> playLevel(scanner, 1, 10);
+            case "hard" -> playLevel(scanner, 10, 30);
+            default -> System.out.println("Invalid Choice");
         }
     }
 
@@ -45,9 +41,13 @@ public class GuessGame3Chance {
 
                 } else {
                     if(guess>randomNum){
-                        System.out.println("Gess Is too High");
+                        System.out.println("Guess Is too High");
+                    }else if(guess<randomNum){
+                        System.out.println("Guess Is too Small");
+                    }else{
+                         System.out.println("OPPS! Try Again!");
                     }
-                    System.out.println("OPPS! Try Again!");
+                   
 
                 }
 
