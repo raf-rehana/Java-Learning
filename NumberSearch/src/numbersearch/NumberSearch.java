@@ -1,13 +1,14 @@
-package array;
+
+package numbersearch;
 
 import java.util.Scanner;
 
-public class Array {
+public class NumberSearch {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a Number to search: ");
+        System.out.print("Enter a Number to Search: ");
         int search = scanner.nextInt();
         boolean found = false;
         int[] numbers = {1, 4, 5, 8, 2, 90, 56, 34, 900, 678, 434, 23, 456, 260, 344, 78};
@@ -15,14 +16,14 @@ public class Array {
         for (int i = 0; i < numbers.length; i++) {
 
             if (numbers[i] == search) {
-                System.out.print("The Number " + (search) + " Has Found at " + (i + 1) + " Position! ");
+                System.out.println("The Number " + (search) + " Has Been Found At Position! " + (i + 1) );
                 found = true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("The Number " + (search)+ " Not Found in the List!");
+            System.out.println("The Number " + (search)+ " Wasn't Found in the List!");
         }
-
     }
+    
 }

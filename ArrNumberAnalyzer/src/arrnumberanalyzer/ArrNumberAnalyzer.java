@@ -8,13 +8,13 @@ public class ArrNumberAnalyzer {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter how many numbers: ");
+        System.out.print("How many numbers? : ");
         int n = scanner.nextInt();
 
         int[] array = new int[n];
 
         for (int i = 0; i < n; i++) {
-            System.out.print("Enter number " + (i + 1) + ": ");
+            System.out.print("Enter " + numberPosition(i + 1) + " Number: ");
             array[i] = scanner.nextInt();
         }
 
@@ -57,14 +57,27 @@ public class ArrNumberAnalyzer {
 
         for (int i = 0; i < n; i++) {
             if (array[i] == key) {
-                System.out.println("Number found at position: " + (i + 1));
+                System.out.println("Number Found At " + numberPosition(i + 1)+ " position!");
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            System.out.println("Number not found!");
+            System.out.println("Number Not found!");
+        }
+
+    }
+    
+     public static String numberPosition(int number) {
+        if (number % 10 == 1 && number % 100 != 11) {
+            return number + "st";
+        } else if (number % 10 == 2 && number % 100 != 12) {
+            return number + "nd";
+        } else if (number % 10 == 3 && number % 100 != 13) {
+            return number + "rd";
+        } else {
+            return number + "th";
         }
 
     }
