@@ -8,64 +8,106 @@ public class ArrayCalculator {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter Size of the vector: ");
-        int n = scanner.nextInt();
+        System.out.print("Enter your row limit: ");
+        int rowSize = scanner.nextInt();
 
-        int[] vector1 = new int[n];
-        int[] vector2 = new int[n];
+        System.out.print("Enter your column limit: ");
+        int columnSize = scanner.nextInt();
 
-        System.out.println("Enter Element for vector 1: ");
-        for (int i = 0; i < n; i++) {
-            vector1[i] = scanner.nextInt();
-        }
-        System.out.println("Enter Element for vector 2: ");
-        for (int i = 0; i < n; i++) {
-            vector2[i] = scanner.nextInt();
-        }
-        while (true) {
-            System.out.println("--- MENU ---");
-            System.out.println("1. Vector Addition");
-            System.out.println("2. Vector Subtraction");
-            System.out.println("3. Dot Product");
-            System.out.println("4. Exit");
-            System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
+        int[][] matrix1 = new int[rowSize][columnSize];
+        int[][] matrix2 = new int[rowSize][columnSize];
 
-            switch (choice) {
-                case 1:
-                    System.out.println("Vector Addition");
-                    for (int i = 0; i < n; i++) {
-                        System.out.print((vector1[i] + vector2[i]) + " ");
+        inputMatrix(matrix1, scanner, "matrix1");
+        inputMatrix(matrix2, scanner, "matrix2");
+
+        System.out.println("\nMatrix 1:");
+        printMatrix(matrix1);
+
+        System.out.println("Matrix 2:");
+        printMatrix(matrix2);
+
+        System.out.println("\n--- MENU ---");
+        System.out.println("1. Matrix Addition");
+        System.out.println("2. Matrix Subtraction");
+        System.out.println("3. Matrix Multiplication");
+        System.out.println("4. Exit");
+        System.out.print("Choose an option: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+
+            case 1:
+                System.out.println("Result of Addition:");
+                for (int i = 0; i < rowSize; i++) {
+                    for (int j = 0; j < columnSize; j++) {
+                        System.out.print((matrix1[i][j] + matrix2[i][j]) + " ");
                     }
                     System.out.println();
-                    break;
+                }
+                break;
 
-                case 2:
-                    System.out.println("Vector Subtraction");
-                    for (int i = 0; i < n; i++) {
-                        System.out.print((vector1[i] - vector2[i]) + " ");
+            case 2:
+                System.out.println("Result of Subtraction:");
+                for (int i = 0; i < rowSize; i++) {
+                    for (int j = 0; j < columnSize; j++) {
+                        System.out.print((matrix1[i][j] - matrix2[i][j]) + " ");
                     }
                     System.out.println();
-                    break;
+                }
+                break;
 
-                case 3:
-                    int dotProduct = 0;
-                    for (int i = 0; i < n; i++) {
-                        dotProduct += vector1[i] * vector2[i];
+            case 3:
+                if (matrix1[0].length != matrix2.length) {
+                    System.out.println("Cannot multiply: Columns of Matrix 1 != Rows of Matrix 2");
+                    break;
+                }
+
+                System.out.println("Result of Multiplication:");
+
+                int[][] product = new int[matrix1.length][matrix2[0].length];
+
+                for (int i = 0; i < matrix1.length; i++) {
+                    for (int j = 0; j < matrix2[0].length; j++) {
+                        product[i][j] = 0;
+                        for (int k = 0; k < matrix1[0].length; k++) {
+                            product[i][j] += matrix1[i][k] * matrix2[k][j];
+                        }
+                        System.out.print(product[i][j] + " ");
                     }
-                    System.out.println("\nDot Product: " + dotProduct);
-                    break;
+                    System.out.println();
+                }
+                break;
 
-                case 4:
-                    System.out.println("Exiting program. Goodbye!");
-                    scanner.close();
-                    return;
+            case 4:
+                System.out.println("Exiting program!");
+                break;
 
-                default:
-                    System.out.println("Invalid choice! Try again.");
+            default:
+                System.out.println("Invalid choice!");
+        }
+
+    }
+
+    static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void inputMatrix(int[][] matrix, Scanner scanner, String name) {
+        System.out.println("Enter elements for " + name + ":");
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int col = 0; col < matrix[row].length; col++) {
+
+                System.out.print("Row " + (row + 1) + " x Column " + (col + 1) + ": ");
+                matrix[row][col] = scanner.nextInt();
             }
         }
-
     }
 
 }

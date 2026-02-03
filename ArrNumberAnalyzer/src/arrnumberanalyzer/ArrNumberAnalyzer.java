@@ -41,7 +41,7 @@ public class ArrNumberAnalyzer {
             }
         }
 
-        double avg = (double) sum / n;
+        float avg = sum / n;
 
         System.out.println("\n--- Analysis Result ---");
         System.out.println("Sum: " + sum);
