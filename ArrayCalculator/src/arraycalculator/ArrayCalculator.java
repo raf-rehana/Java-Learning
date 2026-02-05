@@ -51,12 +51,13 @@ public class ArrayCalculator {
                     }
 
                     System.out.println("Result of Addition:");
-                    for (int i = 0; i < matrix1.length; i++) {
-                        for (int j = 0; j < matrix1[0].length; j++) {
-                            System.out.print((matrix1[i][j] + matrix2[i][j]) + " ");
+                    for (int row = 0; row < matrix1.length; row++) {
+                        for (int col = 0; col < matrix1[row].length; col++) {
+                            System.out.print((matrix1[row][col] + matrix2[row][col]) + " ");
                         }
                         System.out.println();
                     }
+
                     break;
 
                 case 2:
@@ -66,9 +67,9 @@ public class ArrayCalculator {
                     }
 
                     System.out.println("Result of Subtraction:");
-                    for (int i = 0; i < matrix1.length; i++) {
-                        for (int j = 0; j < matrix1[0].length; j++) {
-                            System.out.print((matrix1[i][j] - matrix2[i][j]) + " ");
+                    for (int row = 0; row < matrix1.length; row++) {
+                        for (int col = 0; col < matrix1[0].length; col++) {
+                            System.out.print((matrix1[row][col] - matrix2[row][col]) + " ");
                         }
                         System.out.println();
                     }
@@ -83,7 +84,7 @@ public class ArrayCalculator {
                     System.out.println("Result of Multiplication:");
 
                     int[][] product = new int[rows1][cols2];
-                    
+
                     for (int i = 0; i < rows1; i++) {
                         for (int j = 0; j < cols2; j++) {
                             product[i][j] = 0;
