@@ -107,15 +107,6 @@ public class ArrayCalculator {
         } while (choice != 4);
     }
 
-    static void printMatrix(int[][] matrix) {
-        for (int[] row : matrix) {
-            for (int value : row) {
-                System.out.print(value + " ");
-            }
-            System.out.println();
-        }
-    }
-
     static void inputMatrix(int[][] matrix, Scanner scanner, String name) {
         System.out.println("Enter elements for " + name + ":");
 
@@ -126,6 +117,15 @@ public class ArrayCalculator {
                 System.out.print("Row " + (row + 1) + " x Column " + (col + 1) + ": ");
                 matrix[row][col] = scanner.nextInt();
             }
+        }
+    }
+
+    static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
         }
     }
 }

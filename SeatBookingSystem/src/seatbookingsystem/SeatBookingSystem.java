@@ -71,7 +71,6 @@ public class SeatBookingSystem {
                         System.out.println("Invalid seat number!");
                     }
                     break;
-
                 case 4:
                     int available = 0;
                     for (int i = 0; i < rows; i++) {
@@ -94,7 +93,6 @@ public class SeatBookingSystem {
 
         } while (choice != 5);
     }
-
     static void showSeats(int[][] seats) {
         System.out.println("\nSeat Layout (0 = Empty, 1 = Booked):");
         
