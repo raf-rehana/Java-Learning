@@ -2,7 +2,11 @@ package geometry.java;
 
 public class Trapezium {
 
-    public double getArea(double a, double b, double height) {
+    public double a;
+    public double b;
+    public double height;
+
+    public double getArea() {
         double area = 1 / 2 * (a + b) * height;
         return area;
     }
