@@ -2,7 +2,6 @@ package banksystem;
 
 import java.util.Scanner;
 
-
 public class BankSystem {
 
     public static void main(String[] args) {
@@ -35,7 +34,7 @@ public class BankSystem {
                     System.out.print("Enter Initial Balance: ");
                     double balance = scanner.nextDouble();
                     
-                    Account account = new Account(accNum, name, balance);
+                    Account account = new Account(accNum, name, balance);                    
                     bank.addAccount(account);
                     break;
 
@@ -53,8 +52,10 @@ public class BankSystem {
 
                 case 3:
                     System.out.println("--------------Withdraw Money------------");
+                    
                     System.out.print("\nEnter Account Number: ");
                     int withAccNum = scanner.nextInt();
+                   
                     Account withAccount = bank.findAccount(withAccNum);
                     if (withAccount != null) {
                         System.out.print("Enter Amount to Withdraw: ");
@@ -65,8 +66,9 @@ public class BankSystem {
 
                 case 4:
                     System.out.print("\nEnter Account Number: ");
-                    int checkAccNum = scanner.nextInt();
+                    int checkAccNum = scanner.nextInt();                  
                     Account checkAccount = bank.findAccount(checkAccNum);
+                    
                     if (checkAccount != null) {
                         checkAccount.showAccountDetails();
                     }

@@ -46,7 +46,6 @@ public class BankManagementSystem {
                         System.out.println("Invalid Amount! Enter positive balance.");
                         balance = scanner.nextDouble();
                     }
-
                     accountCreated = true;
                     System.out.println("\nAccount Created Successfully!");
                     break;

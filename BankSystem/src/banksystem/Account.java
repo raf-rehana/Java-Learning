@@ -4,9 +4,9 @@ package banksystem;
 public class Account {
    
 
-    public int accountNumber;
-    public String accountHolder;
-    public double balance;
+    private int accountNumber;
+    private String accountHolder;
+    private double balance;
 
 
     public Account(int accountNumber, String accountHolder, double balance) {
