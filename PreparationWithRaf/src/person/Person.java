@@ -1,17 +1,18 @@
-package preparationwithraf;
+package person;
 
+import personAllCategory.Student;
 import java.util.Scanner;
 
-public class PreparationWithRaf {
+public class Person {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("How many people's Data You want to see? : ");
+        System.out.print("How many Students's Data You want to see? : ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
-        Person[] personCount = new Person[count];
+        Student[] personCount = new Student[count];
 
         for (int i = 0; i < personCount.length; i++) {
 
@@ -22,15 +23,18 @@ public class PreparationWithRaf {
             int age = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.print("What's the Occupation of " + name + "? :");
-            String occupation = scanner.nextLine();
+            System.out.print("What's the Father's Name of " + name + "? :");
+            String fatherName = scanner.nextLine();
+            
+             System.out.print("What's the Mother's Name of " + name + "? :");
+            String motherName = scanner.nextLine();
 
-            personCount[i]  = new Person(name, age, occupation);
+            personCount[i]  = new Student(name, age, fatherName, motherName);
             
             System.out.println("-----------------------------------------");
           
         }
-        for(Person person: personCount){
+        for(Student person: personCount){
             System.out.println(person);
         }
        

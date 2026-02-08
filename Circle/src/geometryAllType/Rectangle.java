@@ -1,5 +1,5 @@
 
-package geometry.java;
+package geometryAllType;
 
 public class Rectangle {
     

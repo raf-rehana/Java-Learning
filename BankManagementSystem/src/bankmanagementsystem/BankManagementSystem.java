@@ -34,15 +34,14 @@ public class BankManagementSystem {
                         System.out.println("\nAccount already exists!");
                         break;
                     }
-
-                    System.out.print("Enter Your Name: ");
+                    System.out.print("\nEnter Your Name: ");
                     name = scanner.nextLine();
 
                     System.out.print("Enter Account Number: ");
                     accountNumber = scanner.nextInt();
 
                     System.out.print("Enter Initial Balance: ");
-                    balance = scanner.nextDouble();
+                    balance = scanner.nextDouble();                    
                     while (balance < 0) {
                         System.out.println("Invalid Amount! Enter positive balance.");
                         balance = scanner.nextDouble();
@@ -54,11 +53,11 @@ public class BankManagementSystem {
 
                 case 2:
                     if (!accountCreated) {
-                        System.out.println("\nPlease create an account first!");
+                        System.out.println("\nPlease create an account First!");
                         break;
                     }
 
-                    System.out.print("Enter Amount to Deposit: ");
+                    System.out.print("\nEnter Amount to Deposit: ");
                     double deposit = scanner.nextDouble();
 
                     if (deposit <= 0) {
@@ -71,11 +70,11 @@ public class BankManagementSystem {
 
                 case 3:
                     if (!accountCreated) {
-                        System.out.println("\nPlease create an account first!");
+                        System.out.println("\nPlease create an account First!");
                         break;
                     }
 
-                    System.out.print("Enter Amount to Withdraw: ");
+                    System.out.print("\nEnter Amount to Withdraw: ");
                     double withdraw = scanner.nextDouble();
 
                     if (withdraw <= 0) {
@@ -90,19 +89,19 @@ public class BankManagementSystem {
 
                 case 4:
                     if (!accountCreated) {
-                        System.out.println("\nPlease create an account first!");
+                        System.out.println("\nPlease create an account First!");
                         break;
                     }
-                    System.out.println("Current Balance: " + balance + " Taka");
+                    System.out.println("\nBalance is: " + balance + " Taka");
                     break;
 
                 case 5:
                     if (!accountCreated) {
-                        System.out.println("\nPlease create an account first!");
+                        System.out.println("\nPlease create an account First!");
                         break;
                     }
                     System.out.println("\n--------- Account Information --------");
-                    System.out.println("Name: " + name);
+                    System.out.println("Account Holder Name: " + name);
                     System.out.println("Account No: " + accountNumber);
                     System.out.println("Balance: " + balance + " Taka");
                     break;
@@ -117,6 +116,5 @@ public class BankManagementSystem {
 
         } while (choice != 6);
 
-        scanner.close();
     }
 }

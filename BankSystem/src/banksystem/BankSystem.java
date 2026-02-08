@@ -18,24 +18,30 @@ public class BankSystem {
             System.out.println("4. Check Account Balance");
             System.out.println("5. Show All Accounts");
             System.out.println("6. Exit");
+            
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter Account Number: ");
-                    int accNum = scanner.nextInt();
+                    System.out.println("-----------Creating an Account---------");
+                    System.out.print("\nEnter Account Number: ");
+                    int accNum = scanner.nextInt();    
                     scanner.nextLine(); 
-                    System.out.print("Enter Account Holder Name: ");
+                    
+                    System.out.print("Enter Account Holder Name: ");                  
                     String name = scanner.nextLine();
+                    
                     System.out.print("Enter Initial Balance: ");
                     double balance = scanner.nextDouble();
+                    
                     Account account = new Account(accNum, name, balance);
                     bank.addAccount(account);
                     break;
 
                 case 2:
-                    System.out.print("Enter Account Number: ");
+                    System.out.println("-------------Deposit Money--------------");
+                    System.out.print("\nEnter Account Number: ");
                     int depAccNum = scanner.nextInt();
                     Account depAccount = bank.findAccount(depAccNum);
                     if (depAccount != null) {
@@ -46,7 +52,8 @@ public class BankSystem {
                     break;
 
                 case 3:
-                    System.out.print("Enter Account Number: ");
+                    System.out.println("--------------Withdraw Money------------");
+                    System.out.print("\nEnter Account Number: ");
                     int withAccNum = scanner.nextInt();
                     Account withAccount = bank.findAccount(withAccNum);
                     if (withAccount != null) {
@@ -57,7 +64,7 @@ public class BankSystem {
                     break;
 
                 case 4:
-                    System.out.print("Enter Account Number: ");
+                    System.out.print("\nEnter Account Number: ");
                     int checkAccNum = scanner.nextInt();
                     Account checkAccount = bank.findAccount(checkAccNum);
                     if (checkAccount != null) {
@@ -66,11 +73,12 @@ public class BankSystem {
                     break;
 
                 case 5:
+                    System.out.println("\n---------------All Accounts-------------");
                     bank.showAllAccounts();
                     break;
 
                 case 6:
-                    System.out.println("Exiting system. Thank you!");
+                    System.out.println("\nExiting system. Thank you!");
                     break;
 
                 default:
