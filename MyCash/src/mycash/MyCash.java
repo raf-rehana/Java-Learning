@@ -3,20 +3,23 @@ package mycash;
 import java.util.ArrayList;
 import java.util.Scanner;
 import CashSystem.account;
+import CashSystem.Cash;
 
 public class MyCash {
 
     public static Scanner scan = new Scanner(System.in);
+    public static Cash cashService = new Cash();
 
     public static ArrayList<account> accounts = new ArrayList<>();
-
+    
     public static account currentUser = null;
+    
     public static long nextAccountNumber = 12949;
 
     public static void main(String[] args) {
 
         accounts.add(new account(12940, 15000, "Syed Sajin", 12345));
-        accounts.add(new account(12941, 12000, "Israt Jui", 12345));        
+        accounts.add(new account(12941, 12000, "Israt Jui", 12345));
         accounts.add(new account(12942, 500000, "Rafiaah Nur", 12345));
         accounts.add(new account(12943, 10000, "Sadiya Jahan", 12345));
         accounts.add(new account(12944, 50000, "Mishkat", 12345));
@@ -30,7 +33,7 @@ public class MyCash {
 
     public static void startMenu() {
         while (true) {
-            System.out.println("\n==== MyCash ====");
+            System.out.println("\n======= MyCash =========");
             System.out.println("1. Login");
             System.out.println("2. Create Account");
             System.out.println("3. Exit");
@@ -38,10 +41,14 @@ public class MyCash {
             int choice = scan.nextInt();
 
             switch (choice) {
-                case 1 -> login();
-                case 2 -> createAccount();
-                case 3 -> exitMenu();
-                default -> System.out.println("Invalid choice");
+                case 1 :
+                    login();
+                case 2 :
+                    createAccount();
+                case 3 :
+                    exitMenu();
+                default :
+                    System.out.println("Invalid choice");
             }
         }
     }
@@ -67,21 +74,20 @@ public class MyCash {
     }
 
     public static void login() {
-        System.out.print("Account Number: ");
-        long acc = scan.nextLong();
+        System.out.print("\nAccount Number: ");
+        long accNo = scan.nextLong();
 
         System.out.print("PIN: ");
         int pin = scan.nextInt();
 
         for (account a : accounts) {
-            if (a.getAccountNumber() == acc && a.getPin() == pin) {
+            if (a.getAccountNumber() == accNo && a.getPin() == pin) {
                 currentUser = a;
                 System.out.println("\nWelcome " + a.getName() + "!");
                 home();
                 return;
             }
         }
-
         System.out.println("Invalid account or PIN");
     }
 
@@ -95,21 +101,29 @@ public class MyCash {
             System.out.println("5. Account Details");
             System.out.println("6. Check Balance");
             System.out.println("7. Logout");
+            
             System.out.print("Choose Option: ");
             int choice = scan.nextInt();
 
             switch (choice) {
-                case 1 -> cashIn();
-                case 2 -> cashOut();
-                case 3 -> transfer();
-                case 4 -> changePin();
-                case 5 -> accountDetails();
-                case 6 -> currentUser.checkBalance();
-                case 7 -> {
+                case 1 :
+                    cashIn();
+                case 2 :
+                    cashOut();
+                case 3 :
+                    transfer();
+                case 4 :
+                    changePin();
+                case 5 :
+                    accountDetails();
+                case 6 :
+                    cashService.checkBalance(currentUser);
+                case 7 : {
                     currentUser = null;
                     return;
                 }
-                default -> System.out.println("Invalid choice");
+                default :
+                    System.out.println("Invalid Choice");
             }
         }
     }
@@ -117,17 +131,17 @@ public class MyCash {
     public static void cashIn() {
         System.out.print("Enter amount: ");
         long amount = scan.nextLong();
-        currentUser.cashIn(amount);
+        cashService.cashIn(currentUser, amount);
     }
 
     public static void cashOut() {
-        System.out.print("Enter amount: ");
+        System.out.print("Enter Amount: ");
         long amount = scan.nextLong();
 
         System.out.print("Enter PIN: ");
         int pin = scan.nextInt();
 
-        currentUser.cashOut(amount, pin);
+        cashService.cashOut(currentUser, amount, pin);
     }
 
     public static void transfer() {
@@ -148,26 +162,26 @@ public class MyCash {
             return;
         }
 
-        System.out.print("Amount: ");
+        System.out.print("Enter amount: ");
         long amount = scan.nextLong();
 
         System.out.print("Enter PIN: ");
         int pin = scan.nextInt();
 
-        currentUser.transferMoney(receiver, amount, pin);
+        cashService.transferMoney(currentUser, receiver, amount, pin);
     }
 
     public static void changePin() {
-        System.out.print("Old PIN: ");
+        System.out.print("Enter Old PIN: ");
         int oldPin = scan.nextInt();
 
-        System.out.print("New PIN: ");
+        System.out.print("Enter New PIN: ");
         int newPin = scan.nextInt();
 
         System.out.print("Confirm New PIN: ");
-        int confirm = scan.nextInt();
+        int confirmPin = scan.nextInt();
 
-        currentUser.changePin(oldPin, newPin, confirm);
+        currentUser.changePin(oldPin, newPin, confirmPin);
     }
 
     public static void accountDetails() {
