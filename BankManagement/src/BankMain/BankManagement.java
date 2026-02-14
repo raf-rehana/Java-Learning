@@ -10,6 +10,7 @@ public class BankManagement {
         
         SavingsAccount savingsAccount = new SavingsAccount(12941, "Rafiaah", 50000, 5);
         savingsAccount.displayAccountInfo();
+        
         savingsAccount.addInterest();
         savingsAccount.displayAccountInfo();
 
