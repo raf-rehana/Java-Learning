@@ -4,7 +4,7 @@ package BankMain;
 import BankSystem.CurrentAccount;
 import BankSystem.SavingsAccount;
 
-public class BankManagement {
+public class BankMain {
 
     public static void main(String[] args) {
         
@@ -19,8 +19,8 @@ public class BankManagement {
 
         CurrentAccount currentAccount = new CurrentAccount(12942, "Sajin", 20000, 1000);
         currentAccount.displayAccountInfo();
+        
         currentAccount.withdraw(2500);
-        currentAccount.withdraw(1000);
         currentAccount.displayAccountInfo();
     
 
