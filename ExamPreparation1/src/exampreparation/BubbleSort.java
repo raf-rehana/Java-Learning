@@ -1,21 +1,14 @@
-package bubblesort;
+package exampreparation;
 
 import java.util.Arrays;
 
 public class BubbleSort {
 
     public static void main(String[] args) {
-   
-    
-
         int[] numbers = {10, 20, 40, 70, 4, -2, -80, 38, 140, 320, 65, 136};
-        String[] names = {"sadiya", "abiha", "Chameli", "Rafiaah", "keya", "jui"};
 
-        System.out.println("Original Array: " + Arrays.toString(numbers));       
-        System.out.println("New Array: " + Arrays.toString(numberSort(numbers)));
-
-        Arrays.sort(names, String.CASE_INSENSITIVE_ORDER);
-        System.out.println("Names: " + Arrays.toString(names));
+        System.out.println("Original Array: " + Arrays.toString(numbers));
+        System.out.println("\nNew Array: " + Arrays.toString(numberSort(numbers)));
     }
 
     public static int[] numberSort(int[] array) {
@@ -29,6 +22,5 @@ public class BubbleSort {
             }
         }
         return array;
-
     }
 }

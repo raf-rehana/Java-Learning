@@ -17,9 +17,7 @@ public class ArrayMaxMin {
             numbers[i] = scanner.nextInt();
 
         }
-
         numberMethod(numbers);
-
     }
 
     public static void numberMethod(int[] array) {
