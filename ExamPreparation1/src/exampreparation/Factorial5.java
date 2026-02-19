@@ -9,7 +9,7 @@ public class Factorial5 {
             factorial *= i;
         }
 
-        System.out.println("Factorial of 5: " + factorial);
+        System.out.println("\nFactorial of 5: " + factorial);
     }
 
 }

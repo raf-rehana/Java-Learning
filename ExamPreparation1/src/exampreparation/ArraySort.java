@@ -14,7 +14,7 @@ public class ArraySort {
         arrayPrint(array);
 
         for (int i = 0; i < array.length; i++) {
-            arraySort(array[i]);
+            arraySort(array[i]);            
         }
 
         System.out.println("\nSorted 2D Array:");
