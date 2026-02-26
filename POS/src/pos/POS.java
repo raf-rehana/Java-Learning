@@ -9,9 +9,9 @@ public class POS {
 
     public static void main(String[] args) {
         
-        User user1 = new User("rafi", "1234");
-        User user2 = new User("fatiha", "1234");
-        User user3 = new User("rabeya", "1234");
+        User user1 = new User("sathy", "1234");
+        User user2 = new User("keya", "1234");
+        User user3 = new User("juyena ", "1234");
         
         UserDao userDao = new UserDao();
         
