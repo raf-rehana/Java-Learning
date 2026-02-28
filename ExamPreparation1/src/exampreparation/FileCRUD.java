@@ -1,11 +1,12 @@
-package filecrwd;
+
+package exampreparation;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileCRWD {
+public class FileCRUD {
 
     public static void main(String[] args) {
 
@@ -29,5 +30,5 @@ public class FileCRWD {
         } catch (IOException e) {
         }
     }
-
 }
+
