@@ -12,7 +12,7 @@ public class FileCWR {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            File file = new File("rehana.txt");
+            File file = new File("file.txt");
             file.createNewFile();
             System.out.println("File Created: " + file.getName());
 
