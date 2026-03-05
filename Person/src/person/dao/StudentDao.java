@@ -8,27 +8,24 @@ import person.model.StudentInfo;
 import person.util.DbUtil;
 
 public class StudentDao {
-    DbUtil util = new DbUtil();
+    DbUtil db = new DbUtil();
     
     PreparedStatement ps;
-    ResultSet rs;
     String sql = null;
     
-     public void saveStudent(StudentInfo studentinfo){
+     public void saveStudent(StudentInfo student){
         
-        sql = "insert into user(name, email, phoneNumber, address) values(? , ?, ?, ?)";
+        sql = "insert into studentdetails(name, email, phoneNumber, address) values(? , ?, ?, ?)";
         try {
-            ps = util.getCon().prepareStatement(sql);
-            ps.setString(1, studentinfo.getName());
-            ps.setString(2, studentinfo.getEmail());
-            ps.setString(3, studentinfo.getPhoneNumber());
-            ps.setString(4, studentinfo.getAddress());
-         
-            
+            ps = db.getCon().prepareStatement(sql);
+            ps.setString(1, student.getName());
+            ps.setString(2, student.getEmail());
+            ps.setString(3, student.getPhoneNumber());
+            ps.setString(4, student.getAddress()); 
             
             ps.executeUpdate();
             ps.close();
-            util.getCon().close();
+            db.getCon().close();
             
             System.out.println("Data Saved");
             
