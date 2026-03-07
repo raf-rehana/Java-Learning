@@ -14,12 +14,12 @@ public class employeeDao {
     
      public void saveEmployee(employee e){
         
-        sql = "insert into employee(name, email, salary) values(? , ?, ?)";
+        sql = "insert into employee(name, email, phoneNumber) values(? , ?, ?)";
         try {
             ps = db.getCon().prepareStatement(sql);
             ps.setString(1, e.getName());
             ps.setString(2, e.getEmail());
-            ps.setInt(3, e.getSalary());
+            ps.setString(3, e.getPhoneNumber());
             
             ps.executeUpdate();
             ps.close();

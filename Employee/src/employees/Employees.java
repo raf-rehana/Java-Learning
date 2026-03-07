@@ -8,7 +8,7 @@ public class Employees {
 
     public static void main(String[] args) {
    
-        employee employee = new employee("Rafiaah", "rafiaah@gmail.com", 5000000);
+        employee employee = new employee("Rafiaah", "rafiaah@gmail.com", "018190000");
        
        employeeDao employeeDao = new employeeDao();
        
