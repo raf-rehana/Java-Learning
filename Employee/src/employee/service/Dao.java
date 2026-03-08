@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface Dao <E> {
     
-     void saveEmployee(E e);
+    void saveEmployee(E e);
 
     void updateEmployee(E e);
 
     void deleteEmployee(int id);
 
-    List<E> findAll();
+    List<E> showAll();
 
     E findById(int id);
 }

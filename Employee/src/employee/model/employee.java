@@ -6,22 +6,26 @@ public class employee {
     private String name;
     private String email;
     private  String phoneNumber;
+    
+    private int salary;
    
 
-    public employee(String name, String email, String phoneNumber) {
+    public employee(String name, String email, String phoneNumber, int salary) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.salary = salary;
     }
 
     public employee() {
     }
 
-    public employee(int id, String name, String email, String phoneNumber) {
+    public employee(int id, String name, String email, String phoneNumber, int salary) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.salary = salary;
     }
 
     public int getId() {
@@ -56,11 +60,20 @@ public class employee {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "employeeInfo{" + "id=" + id + ", name=" + name + ", email=" + email + ", Phone=" + phoneNumber + '}';
+    public int getSalary() {
+        return salary;
     }
 
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "employee{" + "id=" + id + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber + ", salary=" + salary + '}';
+    }
+
+   
  
 
 
