@@ -1,30 +1,30 @@
 
 package employee.model;
 
-public class employee {
+public class Employee {
      private int id;
     private String name;
     private String email;
-    private  String phoneNumber;
+    private  String phone;
     
     private int salary;
    
 
-    public employee(String name, String email, String phoneNumber, int salary) {
+    public Employee(String name, String email, String phone, int salary) {
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.salary = salary;
     }
 
-    public employee() {
+    public Employee() {
     }
 
-    public employee(int id, String name, String email, String phoneNumber, int salary) {
+    public Employee(int id, String name, String email, String phone, int salary) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.salary = salary;
     }
 
@@ -52,12 +52,12 @@ public class employee {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getSalary() {
@@ -70,7 +70,7 @@ public class employee {
 
     @Override
     public String toString() {
-        return "employee{" + "id=" + id + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber + ", salary=" + salary + '}';
+        return "employee{" + "id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", salary=" + salary + '}';
     }
 
    

@@ -1,23 +1,17 @@
 package employees;
 
-import employee.dao.employeeDao;
-import employee.model.employee;
+import employee.dao.EmployeeDao;
+import employee.model.Employee;
 import java.sql.SQLException;
-import java.util.List;
 
 public class Employees {
-
     public static void main(String[] args) throws SQLException {
-
-        employee employee = new employee("Rafiaah", "rafiaah@gmail.com", "018190000", 500000);
-
-        employeeDao employeeDao = new employeeDao();
+        Employee employee = new Employee("Sajin", "sajin@gmail.com", "019190000", 500000);
+        EmployeeDao employeeDao = new EmployeeDao();
 
         employeeDao.saveEmployee(employee);
-        employeeDao.updateEmployee(employee);
-        employeeDao.deleteEmployee(employee);
-        employeeDao.showAll();
-
+//        EmployeeDao.updateEmployee(Employee);
+//        EmployeeDao.deleteEmployee(Employee);
+//        EmployeeDao.showAll();
     }
-
 }

@@ -1,6 +1,6 @@
 package employee.dao;
 
-import employee.model.employee;
+import employee.model.Employee;
 import employee.util.DbUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,21 +8,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class employeeDao {
+public class EmployeeDao {
 
     DbUtil db = new DbUtil();
 
     PreparedStatement ps;
     String sql = null;
 
-    public void saveEmployee(employee e) {
+    public void saveEmployee(Employee e) {
 
-        sql = "insert into employee(name, email, phoneNumber, salary) values(? , ?, ?, ?)";
+        sql = "insert into employee(name, email, phone, salary) values(? , ?, ?, ?)";
         try {
             ps = db.getCon().prepareStatement(sql);
             ps.setString(1, e.getName());
             ps.setString(2, e.getEmail());
-            ps.setString(3, e.getPhoneNumber());
+            ps.setString(3, e.getPhone());
             ps.setInt(4, e.getSalary());
             ps.executeUpdate();
             ps.close();
@@ -35,15 +35,15 @@ public class employeeDao {
         }
     }
 
-    public void updateEmployee(employee e) {
-        sql = "update employee set name = ?, email = ?, phoneNumber = ?, salary = ? where id = ? ";
+    public void updateEmployee(Employee e) {
+        sql = "update employee set name = ?, email = ?, phone = ?, salary = ? where id = ? ";
 
         try {
             ps = db.getCon().prepareStatement(sql);
 
             ps.setString(1, e.getName());
             ps.setString(2, e.getEmail());
-            ps.setString(3, e.getPhoneNumber());
+            ps.setString(3, e.getPhone());
             ps.setInt(4, e.getSalary());
             ps.setInt(5, e.getId());
 
@@ -59,7 +59,7 @@ public class employeeDao {
 
     }
 
-    public void deleteEmployee(employee e) {
+    public void deleteEmployee(Employee e) {
         sql = "delete from employee where id = ? ";
 
         try {
@@ -75,12 +75,9 @@ public class employeeDao {
         } catch (SQLException ex) {
             System.out.println("Data Not deletedted");
         }
-
     }
-
-    public List<employee> showAll() {
-
-        List<employee> empList = new ArrayList<>();
+    public List<Employee> showAll() {
+        List<Employee> empList = new ArrayList<>();
         sql = "SELECT * FROM employee";
 
         try {
@@ -88,11 +85,11 @@ public class employeeDao {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                employee e = new employee();
+                Employee e = new Employee();
                 e.setId(rs.getInt("id"));
                 e.setName(rs.getString("name"));
                 e.setEmail(rs.getString("email"));
-                e.setPhoneNumber(rs.getString("phoneNumber"));
+                e.setPhone(rs.getString("phone"));
                 e.setSalary(rs.getInt("salary"));
 
                 empList.add(e);

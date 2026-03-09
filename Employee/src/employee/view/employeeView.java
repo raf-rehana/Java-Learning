@@ -1,15 +1,45 @@
 package employee.view;
 
-import employee.dao.employeeDao;
-import employee.model.employee;
+import employee.dao.EmployeeDao;
+import employee.model.Employee;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
-public class employeeView extends javax.swing.JFrame {
+public class EmployeeView extends javax.swing.JFrame {
+    
+    EmployeeDao dao = new EmployeeDao();
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(employeeView.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EmployeeView.class.getName());
 
-    public employeeView() {
+    public EmployeeView() {
         initComponents();
+        ShowAllEmployee();
     }
+    
+    public void ShowAllEmployee(){
+        List<Employee> list = dao.showAll();
+         
+        DefaultTableModel model = new DefaultTableModel();
+        String[] names= {"Id", "Name", "Email", "Phone", "Salary"};
+        model.setColumnIdentifiers(names);
+        
+        tblEmployee.setModel(model);
+        
+        for(Employee e : list){
+            model.addRow(new Object[]{e.getId(), e.getName(), e.getEmail(), e.getPhone(), e.getSalary()});
+        
+        }
+        
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -107,7 +137,6 @@ public class employeeView extends javax.swing.JFrame {
         });
         btnEmpDelete.addActionListener(this::btnEmpDeleteActionPerformed);
 
-        txtEmpName.setText("RA");
         txtEmpName.addActionListener(this::txtEmpNameActionPerformed);
 
         txtEmpEmail.addActionListener(this::txtEmpEmailActionPerformed);
@@ -245,39 +274,38 @@ public class employeeView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmpUpdateActionPerformed
 
     private void btnEmpSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpSaveMouseClicked
-        employee e = new employee();
+        Employee e = new Employee();
 
         e.setName(txtEmpName.getText());
         e.setEmail(txtEmpEmail.getText());
-        e.setPhoneNumber(txtEmpSalary.getText());
-         e.setPhoneNumber(txtEmpSalary.getText());
+        e.setPhone(txtEmpSalary.getText());
         e.setSalary(Integer.parseInt(txtEmpSalary.getText()));
 
-        employeeDao dao = new employeeDao();
+        EmployeeDao dao = new EmployeeDao();
 
         dao.saveEmployee(e);
 
     }//GEN-LAST:event_btnEmpSaveMouseClicked
 
     private void btnEmpUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpUpdateMouseClicked
-        employee e = new employee();
+        Employee e = new Employee();
         e.setName(txtEmpName.getText());
         e.setEmail(txtEmpEmail.getText());
-        e.setPhoneNumber(txtEmpSalary.getText());
+        e.setPhone(txtEmpSalary.getText());
         e.setSalary(Integer.parseInt(txtEmpSalary.getText()));
 
-        employeeDao dao = new employeeDao();
+        EmployeeDao dao = new EmployeeDao();
 
         dao.updateEmployee(e);
 
     }//GEN-LAST:event_btnEmpUpdateMouseClicked
 
     private void btnEmpDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpDeleteMouseClicked
-        employee e = new employee();
+        Employee e = new Employee();
 
         e.setId(Integer.parseInt(txtEmpId.getText()));
 
-        employeeDao dao = new employeeDao();
+        EmployeeDao dao = new EmployeeDao();
         dao.deleteEmployee(e);
     }//GEN-LAST:event_btnEmpDeleteMouseClicked
 
@@ -291,7 +319,7 @@ public class employeeView extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(() -> new employeeView().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EmployeeView().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
