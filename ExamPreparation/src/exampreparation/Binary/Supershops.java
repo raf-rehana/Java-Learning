@@ -1,5 +1,5 @@
 
-package exampreparation.in;
+package exampreparation.Binary;
 
 public class Supershops implements PosService {
 
