@@ -1,5 +1,5 @@
 
-package exampreparation.Binary;
+package exampreparation.POS;
 
 public class POS {
 

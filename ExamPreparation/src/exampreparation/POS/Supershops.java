@@ -1,5 +1,7 @@
 
-package exampreparation.Binary;
+package exampreparation.POS;
+
+import exampreparation.POS.PosService;
 
 public class Supershops implements PosService {
 
