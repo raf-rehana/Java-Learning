@@ -1,5 +1,5 @@
 
-package evidenceexam.interf;
+package exampreparation.in;
 
 public class POS {
 
