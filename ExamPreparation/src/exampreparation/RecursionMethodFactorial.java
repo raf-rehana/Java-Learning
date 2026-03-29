@@ -2,7 +2,7 @@ package exampreparation;
 
 import java.util.Scanner;
 
-public class RecursionMethod {
+public class RecursionMethodFactorial {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
