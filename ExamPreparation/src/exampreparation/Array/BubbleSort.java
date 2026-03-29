@@ -1,4 +1,4 @@
-package exampreparation;
+package exampreparation.Array;
 
 import java.util.Arrays;
 

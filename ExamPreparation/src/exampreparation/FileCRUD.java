@@ -13,8 +13,7 @@ public class FileCRUD {
         File file = new File("C:\\Users\\Admin\\Desktop\\raf.dat");
 
         try {
-            
-            
+
             FileOutputStream output = new FileOutputStream(file);
             for (int i = 1; i <= 10; i++) {
                 output.write((i + " ").getBytes());
