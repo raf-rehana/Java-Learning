@@ -40,13 +40,12 @@ public class CRUD {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
-
             System.out.println("Database connected successfully!");
             return con;
 
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Database connection failed!");
-            return null;
+             return null;
         }
     }
 
@@ -64,7 +63,6 @@ public class CRUD {
             getCon().close();
             System.out.println("Data Saved");
         } catch (SQLException ex) {
-            System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             System.out.println("Data Not Saved");
         }
     }
@@ -81,7 +79,7 @@ public class CRUD {
                 System.out.println(students);
             }
         } catch (SQLException ex) {
-            System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            System.out.println("Data Not Found!");
         }
     }
 
@@ -103,7 +101,6 @@ public class CRUD {
             getCon().close();
 
         } catch (SQLException ex) {
-            System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             System.out.println("Student Data Not Found");
         }
 
@@ -126,10 +123,7 @@ public class CRUD {
 
             System.out.println("Data Updated");
         } catch (SQLException ex) {
-            System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             System.out.println("Data Not Updated");
         }
-
     }
-
 }
