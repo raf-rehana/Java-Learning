@@ -13,21 +13,19 @@ public class CRUD {
 
     public static void main(String[] args) {
 
-        CreateStudent("Rafiaah", "rafiaah@gmail.com", "0191000000", 500000);
-        CreateStudent("Rehana", "rehana@gmail.com", "0192000000", 500000);
-        CreateStudent("Safana", "safana@gmail.com", "0193000000", 500000);
-        CreateStudent("Sanjida", "sanjida@gmail.com", "0194000000", 500000);
+        CreateStudent("Rafia", "rafia@gmail.com", "0196000000", 500000);
+        CreateStudent("Rehanaa", "rehanaa@gmail.com", "0197000000", 500000);
+        CreateStudent("Safanaa", "safanaa@gmail.com", "0198000000", 500000);
+        CreateStudent("Sanjidaa", "sanjidaa@gmail.com", "0199000000", 500000);
 
         ShowAllStudent();
         System.out.println("*******************************");
 
-        deleteStudent(3);
-        deleteStudent(4);
-
+        deleteStudent(6);
+        deleteStudent(7);
         ShowAllStudent();
         System.out.println("*******************************");
-
-        updateStudent("Piya", "piya@gmail.com", "0186000000", 2);
+        updateStudent("Piya", "piya@gmail.com", "0186000000", 500000, 1);
 
         ShowAllStudent();
         System.out.println("*******************************");
@@ -36,17 +34,20 @@ public class CRUD {
     public static Connection getCon() {
 
         String url = "jdbc:mysql://localhost:3306/student";
-        String user = "admin";
+        String user = "root";
         String password = "1234";
-        Connection con = null;
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(url, user, password);
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
+            Connection con = DriverManager.getConnection(url, user, password);
 
-        return con;
+            System.out.println("Database connected successfully!");
+            return con;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("Database connection failed!");
+            return null;
+        }
     }
 
     public static void CreateStudent(String name, String email, String phone, float fee) {
@@ -78,10 +79,6 @@ public class CRUD {
             while (rs.next()) {
                 String students = rs.getInt("id") + " " + rs.getString("name") + " " + rs.getString("email") + " " + rs.getString("phone") + " " + rs.getFloat("fee");
                 System.out.println(students);
-
-                rs.close();
-                ps.close();
-                getCon().close();
             }
         } catch (SQLException ex) {
             System.getLogger(CRUD.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
@@ -112,7 +109,7 @@ public class CRUD {
 
     }
 
-    public static void updateStudent(String name, String email, String phone, float fee) {
+    public static void updateStudent(String name, String email, String phone, float fee, int id) {
 
         String updateSql = "update students set name = ?, email = ?, phone = ? , fee =? where id = ?";
 
@@ -122,6 +119,7 @@ public class CRUD {
             ps.setString(2, email);
             ps.setString(3, phone);
             ps.setFloat(4, fee);
+            ps.setInt(5, id);
             ps.executeUpdate();
             ps.close();
             getCon().close();
