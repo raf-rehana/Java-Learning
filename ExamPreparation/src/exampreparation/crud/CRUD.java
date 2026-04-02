@@ -13,16 +13,26 @@ public class CRUD {
 
     public static void main(String[] args) {
 
-//        createStudent("Rafi", "rafi@gmail.com", "01930000", 50000);
+        createStudent("Rafi", "rafi@gmail.com", "01930000", 50000);
         ShowAllStudent1();
     }
 
-    public static Connection getCon() throws SQLException {
+    public static Connection getCon() {
+
         String url = "jdbc:mysql://localhost:3306/student";
         String user = "root";
         String password = "1234";
 
-        return DriverManager.getConnection(url, user, password);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password);
+            System.out.println("Database connected successfully!");
+            return con;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("Database connection failed!");
+            return null;
+        }
     }
 
     public static void createStudent(String name, String email, String phone, int fee) {
