@@ -45,7 +45,7 @@ public class CRUD {
 
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Database connection failed!");
-             return null;
+            return null;
         }
     }
 
@@ -64,22 +64,6 @@ public class CRUD {
             System.out.println("Data Saved");
         } catch (SQLException ex) {
             System.out.println("Data Not Saved");
-        }
-    }
-
-    public static void ShowAllStudent() {
-        String selectSql = "select * from students";
-
-        try {
-            ps = getCon().prepareStatement(selectSql);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                String students = rs.getInt("id") + " " + rs.getString("name") + " " + rs.getString("email") + " " + rs.getString("phone") + " " + rs.getFloat("fee");
-                System.out.println(students);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Data Not Found!");
         }
     }
 
@@ -124,6 +108,22 @@ public class CRUD {
             System.out.println("Data Updated");
         } catch (SQLException ex) {
             System.out.println("Data Not Updated");
+        }
+    }
+
+    public static void ShowAllStudent() {
+        String selectSql = "select * from students";
+
+        try {
+            ps = getCon().prepareStatement(selectSql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String students = rs.getInt("id") + " " + rs.getString("name") + " " + rs.getString("email") + " " + rs.getString("phone") + " " + rs.getFloat("fee");
+                System.out.println(students);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Data Not Found!");
         }
     }
 }
