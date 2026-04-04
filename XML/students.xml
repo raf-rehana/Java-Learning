@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<java>
+     <student>
+         <id>1</id>
+         <name>Rafiaah</name>
+         <age>16</age>
+     </student>
+     <student>
+         <id>2</id>
+         <name>Rehana</name>
+         <age>16</age>
+     </student>
+</java>
+

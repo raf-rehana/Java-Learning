@@ -1,0 +1,48 @@
+package xml;
+
+import java.io.IOException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class XMLReader {
+
+    public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+
+        Document document = builder.parse("students.xml");
+
+        Element rootElement = document.getDocumentElement();
+        System.out.println("rootElement");
+
+        NodeList nodeList = document.getElementsByTagName("student");
+        System.out.println(nodeList);
+
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element e = (Element) node;
+//                String id = e.getElementsByTagName("id").item(0).getTextContent();
+//                String name = e.getElementsByTagName("name").item(0).getTextContent();
+//                String age = e.getElementsByTagName("age").item(0).getTextContent();
+
+                String id = getTagValue(e, "id");
+                String name = getTagValue(e, "name");
+                String age = getTagValue(e, "age");
+                System.out.println("ID: " + id + " | Name: " + name + " | Age: " + age);
+            }
+        }
+
+    }
+
+    private static String getTagValue(Element e, String id) {
+        throw new UnsupportedOperationException("Not supported yet.");  }
+
+}
