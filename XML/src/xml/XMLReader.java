@@ -22,27 +22,21 @@ public class XMLReader {
         System.out.println("rootElement");
 
         NodeList nodeList = document.getElementsByTagName("student");
-        System.out.println(nodeList);
+        System.out.println("Total students: " + nodeList.getLength());
 
         for (int i = 0; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
 
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element e = (Element) node;
-//                String id = e.getElementsByTagName("id").item(0).getTextContent();
-//                String name = e.getElementsByTagName("name").item(0).getTextContent();
-//                String age = e.getElementsByTagName("age").item(0).getTextContent();
+                String id = e.getElementsByTagName("id").item(0).getTextContent();
+                String name = e.getElementsByTagName("name").item(0).getTextContent();
+                String age = e.getElementsByTagName("age").item(0).getTextContent();
 
-                String id = getTagValue(e, "id");
-                String name = getTagValue(e, "name");
-                String age = getTagValue(e, "age");
                 System.out.println("ID: " + id + " | Name: " + name + " | Age: " + age);
             }
         }
 
     }
-
-    private static String getTagValue(Element e, String id) {
-        throw new UnsupportedOperationException("Not supported yet.");  }
 
 }
