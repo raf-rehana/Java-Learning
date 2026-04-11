@@ -112,7 +112,7 @@ public class EmployeeProject {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                String allEmployee = rs.getInt("id") + " " + rs.getString("name") + " " + rs.getString("email") + " " + rs.getString("department") + " " + rs.getInt("salary");
+                String allEmployee = rs.getInt("id") + "  " + rs.getString("name") + "  " + rs.getString("email") + "   " + rs.getString("department") + "  " + rs.getInt("salary");
                 System.out.println(allEmployee);
             }
 
