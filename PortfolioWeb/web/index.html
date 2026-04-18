@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Java Developer Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    background: #0f172a;
+    cursor: none;
+    padding-top: 70px;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+/* LIGHT MODE */
+.light-mode {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* ===== CURSOR ===== */
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #22d3ee;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-outline {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #22d3ee;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+    z-index: 9998;
+}
+
+/* TRAIL DOTS */
+.trail {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #22d3ee;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* HOVER EFFECT */
+.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.8);
+    background: radial-gradient(circle, rgba(34,211,238,0.3), transparent);
+    border-color: #67e8f9;
+}
+
+a, button {
+    transition: 0.3s;
+}
+
+a:hover, button:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body class="text-white">
+
+<!-- CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md flex justify-between px-8 py-4 z-50">
+    <h1 class="text-cyan-400 font-bold text-xl">Rafiaah.dev</h1>
+
+    <ul class="flex gap-6 text-sm items-center">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- TOGGLE -->
+        <button onclick="toggleMode()" class="bg-cyan-500 px-3 py-1 rounded">
+            Mode
+        </button>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-slate-900 to-slate-800">
+    <div>
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
+             class="w-32 h-32 mx-auto rounded-full border-4 border-cyan-400 mb-6 object-cover"/>
+
+        <h1 class="text-5xl font-bold">Hi, I'm RAFIAAH</h1>
+        <p class="text-cyan-300 mt-3">Java Developer | Spring Boot | Backend Engineer</p>
+
+        <button class="mt-6 px-6 py-3 bg-cyan-500 rounded-full">
+            View Projects
+        </button>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="p-10 bg-slate-900">
+    <h2 class="text-3xl text-cyan-400 mb-4">About Me</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+
+        <div>
+            <p class="text-gray-300 mb-4">
+                I am a Java developer skilled in Spring Boot, REST APIs, and backend systems.
+            </p>
+
+            <div class="bg-slate-800 p-4 rounded">
+                <h3 class="text-cyan-400 font-bold mb-2">Qualification</h3>
+                <ul class="text-gray-300 list-disc ml-5">
+                    <li>MSc in Chemistry</li>
+                    <li>Diploma in Software Engineering</li>
+                    <li>Java & Spring Boot Certification</li>
+                </ul>
+            </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+             class="rounded-xl"/>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="p-10 bg-slate-800">
+    <h2 class="text-3xl text-cyan-400 mb-6">Skills</h2>
+
+    <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-slate-900 p-5 rounded hover:scale-105">
+            <h3 class="font-bold">Java</h3>
+            <p class="text-gray-400">OOP, Multithreading</p>
+        </div>
+
+        <div class="bg-slate-900 p-5 rounded hover:scale-105">
+            <h3 class="font-bold">Spring Boot</h3>
+            <p class="text-gray-400">REST APIs, Microservices</p>
+        </div>
+
+        <div class="bg-slate-900 p-5 rounded hover:scale-105">
+            <h3 class="font-bold">Database</h3>
+            <p class="text-gray-400">MySQL, Hibernate</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="p-10 bg-slate-900">
+    <h2 class="text-3xl text-cyan-400 mb-6">Projects</h2>
+
+    <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-slate-800 rounded overflow-hidden hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
+            <div class="p-3">E-Commerce API</div>
+        </div>
+
+        <div class="bg-slate-800 rounded overflow-hidden hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+            <div class="p-3">Student System</div>
+        </div>
+
+        <div class="bg-slate-800 rounded overflow-hidden hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+            <div class="p-3">Job Portal API</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="p-10 bg-slate-800 text-center">
+    <h2 class="text-3xl text-cyan-400 mb-4">Contact</h2>
+
+    <p>Email: rafiaahnur@gmail.com</p>
+
+    <input class="mt-4 p-2 text-black rounded" placeholder="Message">
+    <button class="px-4 py-2 bg-cyan-500 rounded ml-2">Send</button>
+</section>
+
+<!-- SCRIPT -->
+<script>
+const dot = document.querySelector(".cursor-dot");
+const outline = document.querySelector(".cursor-outline");
+
+let mouseX = 0, mouseY = 0;
+let outlineX = 0, outlineY = 0;
+
+/* TRAIL DOTS */
+const trails = [];
+for (let i = 0; i < 8; i++) {
+    let t = document.createElement("div");
+    t.classList.add("trail");
+    document.body.appendChild(t);
+    trails.push({ el: t, x: 0, y: 0 });
+}
+
+document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    dot.style.left = mouseX + "px";
+    dot.style.top = mouseY + "px";
+});
+
+/* ANIMATION */
+function animate() {
+    outlineX += (mouseX - outlineX) * 0.15;
+    outlineY += (mouseY - outlineY) * 0.15;
+
+    outline.style.left = outlineX + "px";
+    outline.style.top = outlineY + "px";
+
+    trails.forEach((t, i) => {
+        t.x += (mouseX - t.x) * (0.1 + i * 0.02);
+        t.y += (mouseY - t.y) * (0.1 + i * 0.02);
+
+        t.el.style.left = t.x + "px";
+        t.el.style.top = t.y + "px";
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* HOVER EFFECT */
+document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        outline.classList.add("cursor-hover");
+    });
+
+    el.addEventListener("mouseleave", () => {
+        outline.classList.remove("cursor-hover");
+    });
+});
+
+/* DARK/LIGHT MODE */
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
+
+</body>
+</html>
