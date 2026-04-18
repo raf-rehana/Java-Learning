@@ -24,7 +24,7 @@ public class EmployeeProject {
         ShowAllEmployee();
         System.out.println("-----------------------------------------------------");
 
-        DeleteEmployee(1);
+        DeleteEmployee(2);
         ShowAllEmployee();
         System.out.println("-----------------------------------------------------");
     }
@@ -48,7 +48,7 @@ public class EmployeeProject {
     }
 
     public static void CreateEmployee(String name, String email, String department, int salary) {
-        String createSql = "insert into employee (name, email, department, salary) values (?, ?, ?, ?)";
+        String createSql = "insert into employee_info (name, email, department, salary) values (?, ?, ?, ?)";
 
         try {
             ps = getCon().prepareStatement(createSql);
@@ -68,7 +68,7 @@ public class EmployeeProject {
 
     public static void UpdateEmployee(String name, String email, String department, int salary, int id) {
 
-        String updateSql = "UPDATE employee SET name = ?, email = ?, department = ?, salary = ? WHERE id = ?";
+        String updateSql = "UPDATE employee_info SET name = ?, email = ?, department = ?, salary = ? WHERE id = ?";
         try {
             ps = getCon().prepareStatement(updateSql);
             ps.setString(1, name);
@@ -87,7 +87,7 @@ public class EmployeeProject {
     }
 
     public static void DeleteEmployee(int id) {
-        String deleteSql = "delete from employee where id = ?";
+        String deleteSql = "delete from employee_info where id = ?";
         try {
             ps = getCon().prepareStatement(deleteSql);
 
@@ -106,7 +106,7 @@ public class EmployeeProject {
     }
 
     public static void ShowAllEmployee() {
-        String selectSql = "Select * from employee";
+        String selectSql = "Select * from employee_info";
         try {
             ps = getCon().prepareStatement(selectSql);
             rs = ps.executeQuery();

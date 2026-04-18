@@ -93,16 +93,13 @@
 /Vehicle/build/
 /BankManagement/nbproject/private/
 /BankManagement/build/
-<<<<<<< HEAD
 /BubbleSort(multiDimen)/nbproject/private/
-=======
 /FileCRWD/nbproject/private/
 /FileCRWD/build/
 /ATM/nbproject/private/
 /ExamPreparation1/nbproject/private/
 /ExamPreparation1/build/
 /ExamPreparation2/nbproject/private/
->>>>>>> 309a3e2c7f133f614b260cb4047e001984b72bc1
 /ArrayListBasic/nbproject/private/
 /ArrayListBasic/build/
 /Set&Maps/nbproject/private/
@@ -121,3 +118,7 @@
 /EmployeeProject/nbproject/private/
 /JspProJect/nbproject/private/
 /JspProJect/build/
+/BankSystemWeb/nbproject/private/
+/BankSystemWeb/build/
+/WebApplication1/nbproject/private/
+/WebApplication1/build/
